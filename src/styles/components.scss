@@ -1,0 +1,15 @@
+.rootScreen {
+    display: flex;
+    flex-direction: row;
+    height: 100%
+}
+
+.sideNav {
+    flex: 15%;
+    min-width: 240px;
+    border-right: 1px solid black;
+}
+
+.detailsPanel {
+    flex: 85%;
+}

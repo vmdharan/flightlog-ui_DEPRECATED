@@ -1,17 +1,16 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import SideNav from '../components/sidenav';
+import '../styles/components.scss';
 
 const Root = () => (
-    <>
-        <nav>
-            <Link to="/">Dashboard</Link>
-            <Link to="/aircraft">Aircrafts</Link>
-            <Link to="/airport">Airports</Link>
-            <Link to="/entry">Entries</Link>
-        </nav>
+    <div className='rootScreen'>
+        <SideNav />
 
-        <Outlet />
-    </>
+        <div className='detailsPanel'>
+            <Outlet />
+        </div>
+    </div>
 );
 
 export default Root;
