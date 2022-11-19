@@ -7,10 +7,10 @@ import {
 import ErrorPage from './error-page';
 import Root from './routes';
 
-import Dashboard from './pages/dashboard';
-import AircraftList from './pages/aircrafts';
-import AirportList from './pages/airports';
-import EntryList from './pages/entries';
+import Dashboard from './pages/Dashboard';
+import AircraftList from './pages/Aircrafts';
+import AirportList from './pages/Airports';
+import EntryList from './pages/Entries';
 
 const router = createBrowserRouter([
     { 
