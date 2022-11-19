@@ -1,25 +1,21 @@
 import React from "react";
 import { CLIENT_URI } from "../../services/config";
 
-const Table = () => {
-    const canEdit = true;
-    const canDelete = true;
+export interface TableParams {
+    canEdit: boolean;
+    canDelete: boolean;
+    headers: string[];
+    columns: string[][];
+}
+
+const Table = (params: TableParams) => {
+    const canEdit = params.canEdit;
+    const canDelete = params.canDelete;
     const editUrl = canEdit ? CLIENT_URI : "";
     const deleteUrl = canDelete ? CLIENT_URI : "";
 
-    const headers = [
-        "header 1",
-        "header 2",
-        "header 3",
-        "header 4",
-        "header 5"
-    ];
-    const columns = [
-        ["1", 'test', "2022-01-01", "123.45KM", "XBCD"],
-        ["2", 'test2', "2022-01-01", "1123.45KM", "ABCD"],
-        ["3", 'test3', "2022-01-01", "11123.45KM", "FBCD"],
-        ["4", 'test4', "2022-01-01", "3123.45KM", "ABGD"],
-    ];
+    const headers = params.headers;
+    const columns = params.columns;
 
     return (
         <table>
