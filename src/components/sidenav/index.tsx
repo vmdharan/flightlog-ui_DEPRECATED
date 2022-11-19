@@ -7,10 +7,18 @@ const SideNav = () => {
     return (
         <div className="sideNav">
             <nav>
-                <Link to="/">Dashboard</Link>
-                <Link to="/aircraft">Aircrafts</Link>
-                <Link to="/airport">Airports</Link>
-                <Link to="/entry">Entries</Link>
+                <Link to="/" className="no-text-decoration">
+                    <div className="menu-title">Dashboard</div>
+                </Link>
+                <Link to="/aircraft" className="no-text-decoration">
+                    <div className="menu-item">Aircrafts</div>
+                </Link>
+                <Link to="/airport" className="no-text-decoration">
+                    <div className="menu-item">Airports</div>
+                </Link>
+                <Link to="/entry" className="no-text-decoration">
+                    <div className="menu-item">Entries</div>
+                </Link>
             </nav>
         </div>
 
