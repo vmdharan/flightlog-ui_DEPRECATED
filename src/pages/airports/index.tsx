@@ -17,7 +17,7 @@ const AirportList = () => {
             Airport list
 
             {airport && airport.map(m => (
-                <div key={m["id"]}>{m["id"]} - {m["name"]} - {m["type"]}</div>
+                <div key={m["id"]}>{m["id"]} - {m["name"]} - {m["code"]}</div>
             ))}
         </div>
     );
