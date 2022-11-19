@@ -1,8 +1,11 @@
 import React from "react";
+import { CLIENT_URI } from "../../services/config";
 
 const Table = () => {
     const canEdit = true;
     const canDelete = true;
+    const editUrl = canEdit ? CLIENT_URI : "";
+    const deleteUrl = canDelete ? CLIENT_URI : "";
 
     const headers = [
         "header 1",
@@ -40,10 +43,14 @@ const Table = () => {
                             <td key={c2}>{c2}</td>
                         ))}
                         {canEdit && (
-                            <td>Edit</td>
+                            <td>
+                                <a href={editUrl+""}>Edit</a>
+                            </td>
                         )}
                         {canDelete && (
-                            <td>Delete</td>
+                            <td>
+                                <a href={deleteUrl+""}>Delete</a>
+                            </td>
                         )}
                     </tr>
                 ))}

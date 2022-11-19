@@ -15,7 +15,7 @@ const EntryList = () => {
     
     return (
         <div className="App">
-            Entry list
+            <h1>Entry list</h1>
 
             {entry && entry.map(m => (
                 <div key={m["id"]}>

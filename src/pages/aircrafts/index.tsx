@@ -14,7 +14,7 @@ const AircraftList = () => {
     
     return (
         <div className="App">
-            Aircraft list
+            <h1>Aircraft list</h1>
 
             {aircraft && aircraft.map(m => (
                 <div key={m["id"]}>{m["id"]} - {m["name"]} - {m["type"]}</div>

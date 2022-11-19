@@ -14,7 +14,7 @@ const AirportList = () => {
     
     return (
         <div className="App">
-            Airport list
+            <h1>Airport list</h1>
 
             {airport && airport.map(m => (
                 <div key={m["id"]}>{m["id"]} - {m["name"]} - {m["code"]}</div>
