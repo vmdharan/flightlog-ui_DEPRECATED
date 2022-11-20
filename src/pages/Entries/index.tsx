@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Table, { TableParams } from "../../components/Table";
 import { Entry } from "../../models/entry";
 import { GetEntryList } from "../../services/EntryService";
 
@@ -12,23 +13,23 @@ const EntryList = () => {
         }
         getList();
     }, []);
+
+    const headers = entry && entry.length > 0 ? Object.keys(entry[0]).filter(f => f!= "_id") : [];
+    const columns = entry && entry.length > 0 ?  
+        Object.entries(entry).map(m => m[1])
+        : [];
+    const data: TableParams = {
+        canEdit: true,
+        canDelete: true,
+        headers: headers,
+        columns: columns,
+    }
     
     return (
         <div className="App">
             <h1>Entry list</h1>
 
-            {entry && entry.map(m => (
-                <div key={m["id"]}>
-                    {m["id"]} 
-                    - {m["aircraft"]?.name}
-                    - {m["origin"]?.code}
-                    - {m["destination"]?.code}
-                    - {m["distance"]}
-                    - {m["fuelPctTakeoff"]}
-                    - {m["fuelPctLanding"]}
-                    - {m["flightTime"]}
-                </div>
-            ))}
+            <Table {...data} />
         </div>
     );
 }

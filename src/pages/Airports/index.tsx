@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Table, { TableParams } from "../../components/Table";
 import { GetAirportList } from "../../services/AirportService";
 
 const AirportList = () => {
@@ -11,14 +12,23 @@ const AirportList = () => {
         }
         getList();
     }, []);
+
+    const headers = airport && airport.length > 0 ? Object.keys(airport[0]).filter(f => f!= "_id") : [];
+    const columns = airport && airport.length > 0 ?  
+        Object.entries(airport).map(m => m[1])
+        : [];
+    const data: TableParams = {
+        canEdit: true,
+        canDelete: true,
+        headers: headers,
+        columns: columns,
+    }
     
     return (
         <div className="App">
             <h1>Airport list</h1>
 
-            {airport && airport.map(m => (
-                <div key={m["id"]}>{m["id"]} - {m["name"]} - {m["code"]}</div>
-            ))}
+            <Table {...data} />
         </div>
     );
 }

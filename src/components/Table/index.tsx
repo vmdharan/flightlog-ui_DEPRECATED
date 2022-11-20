@@ -5,7 +5,7 @@ export interface TableParams {
     canEdit: boolean;
     canDelete: boolean;
     headers: string[];
-    columns: string[][];
+    columns: any[];
 }
 
 const Table = (params: TableParams) => {
@@ -16,6 +16,14 @@ const Table = (params: TableParams) => {
 
     const headers = params.headers;
     const columns = params.columns;
+
+    // columns?.map((row:any) => {
+    //     console.log(row);
+    //     headers?.map(h => {
+    //         console.log(row[h])
+    //     })
+    // })
+    
 
     return (
         <table>
@@ -33,11 +41,15 @@ const Table = (params: TableParams) => {
                 </tr>
             </thead>
             <tbody>
-                {columns && columns.map(c => (
-                    <tr key={c[0]}>
-                        {c && c.map(c2 => (
-                            <td key={c2}>{c2}</td>
-                        ))}
+                {columns && columns.length > 0 && columns.map((row: any) => (
+                    <tr key={row["id"]}>
+                        {row && headers && headers.length > 0
+                            && headers.map((col:string) => (
+                                <td key={typeof row[col] === 'object' ? row[col]?.id : row[col]}>
+                                    {typeof row[col] === 'object' ? row[col]?.name : row[col]}
+                                    </td>
+                            ))
+                        }
                         {canEdit && (
                             <td>
                                 <a href={editUrl+""}>Edit</a>
