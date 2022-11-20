@@ -1,3 +1,4 @@
+// Root level screens and navigation
 .rootScreen {
     display: flex;
     flex-direction: row;
@@ -14,8 +15,7 @@
     flex: 85%;
 }
 
-
-
+// Side navigation menu
 .no-text-decoration {
     text-decoration: none;
 }
@@ -40,4 +40,33 @@
     color: #67ddac !important;
     cursor: pointer;
     border-left: 5px solid #67ddac;
+}
+
+// Table
+table {
+    border: 0.5px solid #2e2e2e;
+    border-collapse: collapse;
+    margin: 8px;
+}
+
+thead {
+    background-color: #2e2e2e;
+    color: #f2f2f2;
+    
+}
+
+th, td {
+    padding: 8px;
+}
+
+tr {
+    cursor: pointer;
+}
+
+tbody>tr:hover {
+    background-color: #c0c0c0 !important;
+}
+
+tbody>tr:nth-child(odd) {
+    background-color: #f0f0f0;
 }
