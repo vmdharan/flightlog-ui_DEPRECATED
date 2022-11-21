@@ -29,31 +29,27 @@ export default (app) => {
     }
   });
 
-  app.put('/airport/update/:id', async (req, res) => {
+  app.put('/airport/:id/update', async (req, res) => {
     const airport = await AirportModel.findByIdAndUpdate(
       req.params.id, 
-      req.body,
-      (err) => {
-        if(err) {
-          res.status(500).end();
-        } else {
-          res.status(200).end();
-        }
-      }
+      req.body
     );
+    if(!airport || airport?.errors) {
+      res.status(500).end();
+    } else {
+      res.status(200).end();
+    }
   });
 
-  app.delete('/airport/delete/:id', async (req, res) => {
+  app.delete('/airport/:id/delete', async (req, res) => {
     const airport = await AirportModel.findByIdAndDelete(
-      req.params.id,
-      req.body,
-      (err) => {
-        if(err) {
-          res.status(500).end();
-        } else {
-          res.status(200).end();
-        }
-      }
+      req.params.id, 
+      req.body
     );
+    if(!airport || airport?.errors) {
+      res.status(500).end();
+    } else {
+      res.status(200).end();
+    }
   });
 }

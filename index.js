@@ -3,10 +3,12 @@ import bodyParser from 'body-parser';
 import aircraftRoutes from './routes/aircrafts';
 import airportRoutes from './routes/airports';
 import entryRoutes from './routes/entries';
+import cors from 'cors';
 import db from './db/dbinit';
 
 const app = express();
 const port = 3000;
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

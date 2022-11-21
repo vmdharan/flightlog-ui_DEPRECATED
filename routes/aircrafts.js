@@ -29,31 +29,27 @@ export default (app) => {
     }
   });
 
-  app.put('/aircraft/update/:id', async (req, res) => {
+  app.put('/aircraft/:id/update', async (req, res) => {
     const aircraft = await AircraftModel.findByIdAndUpdate(
       req.params.id, 
-      req.body,
-      (err) => {
-        if(err) {
-          res.status(500).end();
-        } else {
-          res.status(200).end();
-        }
-      }
+      req.body
     );
+    if(!aircraft || aircraft?.errors) {
+      res.status(500).end();
+    } else {
+      res.status(200).end();
+    }
   });
 
-  app.delete('/aircraft/delete/:id', async (req, res) => {
+  app.delete('/aircraft/:id/delete', async (req, res) => {
     const aircraft = await AircraftModel.findByIdAndDelete(
-      req.params.id,
-      req.body,
-      (err) => {
-        if(err) {
-          res.status(500).end();
-        } else {
-          res.status(200).end();
-        }
-      }
+      req.params.id, 
+      req.body
     );
+    if(!aircraft || aircraft?.errors) {
+      res.status(500).end();
+    } else {
+      res.status(200).end();
+    }
   });
 }

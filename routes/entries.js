@@ -29,31 +29,27 @@ export default (app) => {
     }
   });
 
-  app.put('/entry/update/:id', async (req, res) => {
+  app.put('/entry/:id/update', async (req, res) => {
     const entry = await EntryModel.findByIdAndUpdate(
       req.params.id, 
-      req.body,
-      (err) => {
-        if(err) {
-          res.status(500).end();
-        } else {
-          res.status(200).end();
-        }
-      }
+      req.body
     );
+    if(!entry || entry?.errors) {
+      res.status(500).end();
+    } else {
+      res.status(200).end();
+    }
   });
 
-  app.delete('/entry/delete/:id', async (req, res) => {
+  app.delete('/entry/:id/delete', async (req, res) => {
     const entry = await EntryModel.findByIdAndDelete(
-      req.params.id,
-      req.body,
-      (err) => {
-        if(err) {
-          res.status(500).end();
-        } else {
-          res.status(200).end();
-        }
-      }
+      req.params.id, 
+      req.body
     );
+    if(!entry || entry?.errors) {
+      res.status(500).end();
+    } else {
+      res.status(200).end();
+    }
   });
 }
