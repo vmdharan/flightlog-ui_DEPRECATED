@@ -1,0 +1,73 @@
+GET http://localhost:3000/entry
+
+###
+
+GET http://localhost:3000/entry/000001
+
+###
+
+POST http://localhost:3000/entry/new
+Content-Type: application/json
+
+{
+    "id": "100000",
+    "aircraft": {
+        "id": "1000",
+        "name": "Boeing 747-8",
+        "type": "Airliner"
+    },
+    "origin": {
+        "id": "20000",
+        "name": "Wellington Intl",
+        "code": "NZWN"
+    },
+    "destination": {
+        "id": "30000",
+        "name": "Auckland Intl",
+        "code": "NZAA"
+    },
+    "startTime": "2022-01-01T10:01:02.000",
+    "endTime": "2022-01-01T12:34:56.000",
+    "flightTime": "1234567",
+    "distance": "1357",
+    "fuelPctTakeoff": "0.88",
+    "fuelPctLanding": "0.23"
+}
+
+###
+
+GET http://localhost:3000/entry/100000
+
+###
+
+PUT http://localhost:3000/entry/100000/update
+Content-Type: application/json
+
+{
+    "id": "100000",
+    "aircraft": {
+        "id": "1000",
+        "name": "Boeing 747-8",
+        "type": "Airliner"
+    },
+    "origin": {
+        "id": "20000",
+        "name": "Wellington Intl",
+        "code": "NZWN"
+    },
+    "destination": {
+        "id": "30000",
+        "name": "Auckland Intl",
+        "code": "NZAA"
+    },
+    "startTime": "2022-01-01T10:01:02.000",
+    "endTime": "2022-01-01T12:34:56.000",
+    "flightTime": "1534567",
+    "distance": "654",
+    "fuelPctTakeoff": "0.88",
+    "fuelPctLanding": "0.43"
+}
+
+###
+
+DELETE http://localhost:3000/entry/100000/delete
