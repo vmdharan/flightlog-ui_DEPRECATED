@@ -1,0 +1,65 @@
+GET http://localhost:3000/airport
+
+###
+
+GET http://localhost:3000/airport/00001
+
+###
+
+POST http://localhost:3000/airport/new
+Content-Type: application/json
+
+{
+    "id": "10000",
+    "name": "Wellington Intl",
+    "code": "NZWN"
+}
+
+###
+
+POST http://localhost:3000/airport/new
+Content-Type: application/json
+
+{
+    "id": "20000",
+    "name": "Dubai Intl",
+    "code": "OMDB"
+}
+
+###
+
+POST http://localhost:3000/airport/new
+Content-Type: application/json
+
+{
+    "id": "30000",
+    "name": "Cairo Intl",
+    "code": "HECA"
+}
+
+###
+
+GET http://localhost:3000/airport/10000
+
+###
+
+PUT http://localhost:3000/airport/10000/update
+Content-Type: application/json
+
+{
+    "id": "10000",
+    "name": "Wellington Intl. Aiport",
+    "code": "NZWN"
+}
+
+###
+
+DELETE http://localhost:3000/airport/10000/delete
+
+###
+
+DELETE http://localhost:3000/airport/20000/delete
+
+###
+
+DELETE http://localhost:3000/airport/300000000000/delete
