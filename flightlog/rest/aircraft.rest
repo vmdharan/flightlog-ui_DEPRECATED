@@ -1,0 +1,65 @@
+GET http://localhost:3000/aircraft
+
+###
+
+GET http://localhost:3000/aircraft/1000
+
+###
+
+POST http://localhost:3000/aircraft/new
+Content-Type: application/json
+
+{
+    "id": "2000",
+    "name": "Boeing 747-8F",
+    "type": "Airliner"
+}
+
+###
+
+POST http://localhost:3000/aircraft/new
+Content-Type: application/json
+
+{
+    "id": "3000",
+    "name": "Boeing 787-10",
+    "type": "Airliner"
+}
+
+###
+
+POST http://localhost:3000/aircraft/new
+Content-Type: application/json
+
+{
+    "id": "4000",
+    "name": "Airbus A320Neo",
+    "type": "Airliner"
+}
+
+###
+
+GET http://localhost:3000/aircraft/2000
+
+###
+
+PUT http://localhost:3000/aircraft/62f3c59fc75eb4f5453c302c/update
+Content-Type: application/json
+
+{
+    "id": "62f3c59fc75eb4f5453c302c",
+    "name": "Boeing 747-8",
+    "type": "Airliner"
+}
+
+###
+
+DELETE http://localhost:3000/aircraft/2000/delete
+
+###
+
+DELETE http://localhost:3000/aircraft/3000/delete
+
+###
+
+DELETE http://localhost:3000/aircraft/4000/delete
